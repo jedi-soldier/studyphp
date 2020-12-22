@@ -1,0 +1,5 @@
+<?php
+$topMenu = getMenu();
+?>
+
+<?=$topMenu?>
