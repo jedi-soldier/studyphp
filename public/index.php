@@ -31,6 +31,7 @@ switch ($page) {
 
     case 'galleryOne':
         $id = (int)$_GET['id'];
+        $params[] = updateViews($id);
         $params['image'] = getOneImage($id);
         break;
 

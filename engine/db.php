@@ -33,6 +33,6 @@ function getAssocResult($sql) {
 //update and delete
 function executeSql($sql) {
     //todo добавить выполнить запрос без возврата результатов  в виде массива return affected_rows
-
-    return mysqli_affected_rows(getDb());
+    $result = @mysqli_query(getDb(), $sql) or die(mysqli_error(getDb()));
+    return  mysqli_affected_rows(getDb());
 }
