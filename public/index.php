@@ -3,31 +3,36 @@
 //Первым делом подключим файл с константами настроек
 include $_SERVER["DOCUMENT_ROOT"] . "/../config/config.php";
 
-//Читаем параметр page из url, чтобы определить, какую страницу-шаблон
-//хочет увидеть пользователь, по умолчанию это будет index
-if (isset($_GET['page'])) {
-    $page = $_GET['page'];
-} else {
+$url_array = explode('/', $_SERVER['REQUEST_URI']);
+
+if ($url_array[1] == "") {
     $page = 'index';
+} else {
+    $page = $url_array[1];
 }
+
 
 //Для каждой страницы готовим массив со своим набором переменных
 //для подстановки их в соотвествующий шаблон
 $params = [];
 switch ($page) {
     case 'index':
-        $params['name'] = 'Админ';
+        $params['name'] = 'admin';
         break;
+
     case 'gallery':
         $params['gallery'] = getGallery();
+        break;
 
+    case 'galleryOne':
+        $id = (int)$_GET['id'];
+        $params['errorUpdate'] = updateViews($id);
+        $params['image'] = getOneImage($id);
         break;
 
     case 'catalog':
         $params['catalog'] = getCatalog();
         break;
 }
-
-_log($params, "render");
-
+_log($params, 'params');
 echo render($page, $params);
