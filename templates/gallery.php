@@ -1,4 +1,3 @@
-
 <?foreach ($gallery as $item):?>
 
     <div>

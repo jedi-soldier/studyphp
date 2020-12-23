@@ -21,17 +21,12 @@ switch ($page) {
         break;
 
     case 'gallery':
-        if ($_POST) {
-            uploadFile();
-            header();
-        }
-
         $params['gallery'] = getGallery();
         break;
 
     case 'galleryOne':
         $id = (int)$_GET['id'];
-        $params[] = updateViews($id);
+        $params['errorUpdate'] = updateViews($id);
         $params['image'] = getOneImage($id);
         break;
 
