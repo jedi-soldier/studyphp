@@ -34,5 +34,4 @@ switch ($page) {
         $params['catalog'] = getCatalog();
         break;
 }
-_log($params, 'params');
 echo render($page, $params);

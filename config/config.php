@@ -14,7 +14,6 @@ define('DB', 'geek');
 
 include ROOT . "/engine/functions.php";
 include ROOT . "/engine/catalog.php";
-include ROOT . "/engine/log.php";
 include ROOT . "/engine/gallery.php";
 include ROOT . "/engine/resizeImages.php";
 include ROOT . "/engine/db.php";
