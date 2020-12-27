@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="" name="calc" >
+    <input type="text" name="value1" value="">
+    <select name="operation">
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">*</option>
+        <option value="4">/</option>
+    </select>
+    <input type="text" name="value2" value="">
+    <input type="submit" value="=" id="rs">
+    <input type="text" id="result" name="result" value="" readonly>
+    <div id="resulti"></div>
+
+</form>
+<script>
+    window.onload = function () {
+        document.forms.calc.onsubmit = function (e) {
+            e.preventDefault();
+        }
+        document.getElementById('rs').onclick = function () {
+            (async () => {
+                var value1 = document.forms.calc.value1.value;
+                value1 = encodeURIComponent(value1);
+                var value2 = document.forms.calc.value2.value;
+                value2 = encodeURIComponent(value2);
+                var operation = document.forms.calc.operation.value;
+                const response = await fetch('calc.php', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: "arg1=" + value1 + "&arg2=" + value2 + "&operation=" + operation,
+                });
+                const answer = await response.json();
+                document.getElementById('result').value = answer;
+            })();
+        }
+    }
+</script>
+</body>
+</html>

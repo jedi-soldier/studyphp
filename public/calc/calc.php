@@ -15,27 +15,27 @@ function divis ($i, $n) {
 }
 function mathOperation($arg1, $arg2, $operation){
     switch ($operation){
-        case "+":
+        case 1:
             return add($arg1, $arg2);
-        case "-":
+        case 2:
             return sub($arg1, $arg2);
-        case "*":
+        case 3:
             return multip($arg1, $arg2);
-        case "/":
+        case 4:
             return divis($arg1, $arg2);
         default:
             return "Неправильная операция!";
     }
 }
 if (!empty($_POST)) {
-    var_dump($_POST);
-    var_dump($_POST['value1']);
-    var_dump($_POST['value2']);
-    var_dump($_POST['operation']);
-    $value1 = (float)$_POST['value1'];
-    $value2 = (float)$_POST['value2'];
-    $operation = $_POST['operation'];
-    $result = mathOperation($value1, $value2, $operation);
+    $arg1 = (float)$_POST['arg1'];
+    $arg2 = (float)$_POST['arg2'];
+    $operation = (float)$_POST['operation'];
+
+    $response = mathOperation($arg1, $arg2, $operation);
+
+    header("Content-type: application/json");
+    echo json_encode($response);
 }
 
 
