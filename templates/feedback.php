@@ -9,5 +9,5 @@
 </form>
 
 <?foreach ($feedback as $value): ?>
-    <div><strong><?=$value['name']?></strong>: <?=$value['feedback']?></div>
+    <div><strong><?=$value['name']?></strong>: <?=$value['message']?></div>
 <?endforeach;?>

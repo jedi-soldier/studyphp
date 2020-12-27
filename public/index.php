@@ -33,5 +33,9 @@ switch ($page) {
     case 'catalog':
         $params['catalog'] = getCatalog();
         break;
+    case 'feedback':
+        $params['feedback'] = getAllFeedback();
+        $params['addfeedback'] = addFeedBack();
+        break;
 }
 echo render($page, $params);

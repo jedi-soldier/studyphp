@@ -17,3 +17,4 @@ include ROOT . "/engine/catalog.php";
 include ROOT . "/engine/gallery.php";
 include ROOT . "/engine/resizeImages.php";
 include ROOT . "/engine/db.php";
+include ROOT . "/engine/feedback.php";
