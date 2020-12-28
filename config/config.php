@@ -4,6 +4,7 @@ define('TEMPLATES_DIR', ROOT . '/templates/');
 define('LAYOUTS_DIR', 'layouts/');
 define('BIG_IMG_FOLDER', $_SERVER["DOCUMENT_ROOT"] . '/img/big/');
 define('SMALL_IMG_FOLDER', $_SERVER["DOCUMENT_ROOT"] . '/img/small/');
+define('ALL_IMG_FOLDER', $_SERVER["DOCUMENT_ROOT"] . '/img/');
 
 /* DB config */
 define('HOST', 'localhost');
