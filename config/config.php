@@ -19,3 +19,4 @@ include ROOT . "/engine/gallery.php";
 include ROOT . "/engine/resizeImages.php";
 include ROOT . "/engine/db.php";
 include ROOT . "/engine/feedback.php";
+include ROOT . "/engine/goods_feedback.php";
