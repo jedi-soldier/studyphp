@@ -11,7 +11,6 @@ if ($url_array[1] == "") {
     $page = $url_array[1];
 }
 
-
 //Для каждой страницы готовим массив со своим набором переменных
 //для подстановки их в соотвествующий шаблон
 $params = [];
@@ -33,6 +32,16 @@ switch ($page) {
     case 'catalog':
         $params['catalog'] = getCatalog();
         break;
+    case 'good':
+        $id = (int)$_GET['id'];
+        $params['good'] = getOneGood($id);
+        $params['goodGallery'] = getGoodGallery($id);
+        $params['allFeedback'] = getGoodFeedback($id);
+        $params['addFeedback'] = addFeedBackForGood($id);
+        break;
+    case 'feedback':
+        $params['feedback'] = getAllFeedback();
+        $params['addfeedback'] = addFeedBack();
+        break;
 }
-_log($params, 'params');
 echo render($page, $params);
