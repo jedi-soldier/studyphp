@@ -1,5 +1,5 @@
 <?php
-
+// commit for test
 //Первым делом подключим файл с константами настроек
 include $_SERVER["DOCUMENT_ROOT"] . "/../config/config.php";
 
